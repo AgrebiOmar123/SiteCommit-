@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Fahrenheit to Celsius Converter</title>
+    <title>Degree Converter</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -10,7 +10,7 @@
 
         .container {
             width: 300px;
-            margin: 0 auto;
+            margin: 20px auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 5px;
@@ -21,8 +21,13 @@
             color: #333;
         }
 
+        .converter {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
         label {
-            display: block;
             margin-top: 10px;
         }
 
@@ -34,44 +39,40 @@
             border-radius: 3px;
         }
 
-        button {
-            background-color: #0074d9;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
+        #result {
             margin-top: 10px;
-        }
-
-        button:hover {
-            background-color: #0056b3;
+            font-size: 18px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Fahrenheit to Celsius Converter</h1>
-        <label for="fahrenheit">Enter temperature in Fahrenheit:</label>
-        <input type="text" id="fahrenheit" placeholder="Enter temperature" />
+        <h1>Degree Converter (Fahrenheit to Celsius)</h1>
+        <div class="converter">
+            <label for="fahrenheit">Enter temperature in Fahrenheit:</label>
+            <input type="text" id="fahrenheit" placeholder="Enter temperature" oninput="convertToFahrenheit(this.value)" />
 
-        <button onclick="convertToFahrenheit()">Convert</button>
-
-        <p id="result"></p>
+            <div id="result"></div>
+        </div>
     </div>
 
     <script>
-        function convertToFahrenheit() {
-            var fahrenheitInput = document.getElementById("fahrenheit");
+        function convertToFahrenheit(fahrenheit) {
             var resultElement = document.getElementById("result");
 
+            if (fahrenheit === "") {
+                resultElement.textContent = "";
+                return;
+            }
+
             // Get the input value and convert it to a number
-            var fahrenheit = parseFloat(fahrenheitInput.value);
+            fahrenheit = parseFloat(fahrenheit);
 
             // Check if the input is a valid number
             if (!isNaN(fahrenheit)) {
                 var celsius = (fahrenheit - 32) * 5/9;
-                resultElement.textContent = fahrenheit + " degrees Fahrenheit is " + celsius.toFixed(2) + " degrees Celsius.";
+                resultElement.textContent = `${fahrenheit.toFixed(2)}°F is ${celsius.toFixed(2)}°C`;
             } else {
                 resultElement.textContent = "Please enter a valid temperature in Fahrenheit.";
             }
@@ -79,3 +80,4 @@
     </script>
 </body>
 </html>
+
