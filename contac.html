@@ -1,15 +1,65 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content hi="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body style="background-color:powderblue;">
+    <title>Styled Form</title>
+    <style>
+        body {
+            background-color: #333;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
 
-    <h1>This is a heading</h1>
-    <p>This is a paragraph.</p>
-    
-    </body>
+        h1 {
+            color: rgb(224, 15, 15);
+        }
+
+        form {
+            background-color: rgb(223, 15, 15);
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: darkred;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #800000;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contact Us</h1>
+    <form action="submit.php" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
 </html>
