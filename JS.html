@@ -1,3 +1,81 @@
 <!DOCTYPE html>
 <html>
-<head> 
+<head>
+    <title>Fahrenheit to Celsius Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            background-color: #0074d9;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fahrenheit to Celsius Converter</h1>
+        <label for="fahrenheit">Enter temperature in Fahrenheit:</label>
+        <input type="text" id="fahrenheit" placeholder="Enter temperature" />
+
+        <button onclick="convertToFahrenheit()">Convert</button>
+
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function convertToFahrenheit() {
+            var fahrenheitInput = document.getElementById("fahrenheit");
+            var resultElement = document.getElementById("result");
+
+            // Get the input value and convert it to a number
+            var fahrenheit = parseFloat(fahrenheitInput.value);
+
+            // Check if the input is a valid number
+            if (!isNaN(fahrenheit)) {
+                var celsius = (fahrenheit - 32) * 5/9;
+                resultElement.textContent = fahrenheit + " degrees Fahrenheit is " + celsius.toFixed(2) + " degrees Celsius.";
+            } else {
+                resultElement.textContent = "Please enter a valid temperature in Fahrenheit.";
+            }
+        }
+    </script>
+</body>
+</html>
